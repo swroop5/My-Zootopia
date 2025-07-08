@@ -8,15 +8,17 @@ def load_data(file_path):
 animals_data = load_data('animals_data.json')
 
 for item in animals_data:
-    #print(item)
+    print('<li class="cards__item">')
+
     if 'name' in item:
-        print(f'Name: {item["name"]}')
+        print(f'Name: {item["name"]}<br/>')
     if 'characteristics' in item:
         if 'diet' in item["characteristics"]:
-            print(f'Diet:  {item["characteristics"]["diet"]}')
+            print(f'Diet:  {item["characteristics"]["diet"]}<br/>')
     if 'locations' in item:
-        print(f'Location: {item["locations"][0]}')
+        print(f'Location: {item["locations"][0]}<br/>')
     if 'characteristics' in item:
         if 'type' in item["characteristics"]:
-            print(f'Type: {item["characteristics"]["type"]}')
+            print(f'Type: {item["characteristics"]["type"]}<br/>')
+    print('</li>')
     print()
