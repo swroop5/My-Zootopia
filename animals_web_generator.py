@@ -11,14 +11,16 @@ for item in animals_data:
     print('<li class="cards__item">')
 
     if 'name' in item:
-        print(f'Name: {item["name"]}<br/>')
+        print(f'<div class="card__title">{item["name"]}</div>')
+    print('<p class="card__text">')
     if 'characteristics' in item:
         if 'diet' in item["characteristics"]:
-            print(f'Diet:  {item["characteristics"]["diet"]}<br/>')
+            print(f'<strong>Diet:</strong>  {item["characteristics"]["diet"]}<br/>')
     if 'locations' in item:
-        print(f'Location: {item["locations"][0]}<br/>')
+        print(f'<strong>Location:</strong> {item["locations"][0]}<br/>')
     if 'characteristics' in item:
         if 'type' in item["characteristics"]:
-            print(f'Type: {item["characteristics"]["type"]}<br/>')
+            print(f'<strong>Type:</strong> {item["characteristics"]["type"]}<br/>')
+    print('</p>')
     print('</li>')
     print()
