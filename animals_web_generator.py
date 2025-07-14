@@ -7,6 +7,7 @@ def load_data(file_path):
 
 
 def serialize_animal(animal_obj):
+    """ Serializes the animal object data and produces a HTML string as output """
     output = ''
     output += '<li class="cards__item">\n'
     output += f'<div class="card__title">{animal_obj["name"]}</div>\n'
@@ -24,10 +25,21 @@ def serialize_animal(animal_obj):
     return output
 
 
-animals_data = load_data('animals_data.json')
+def main():
+    ''' Generate the animals.html output file '''
+    animals_data = load_data('animals_data.json')
 
-output = ''
-for animal_obj in animals_data:
-    output += serialize_animal(animal_obj)
+    output = ''
+    for animal_obj in animals_data:
+        output += serialize_animal(animal_obj)
 
-print(output)
+    template_str = ''
+    with open('animals_template.html', 'r+') as f:
+        template_str = f.read()
+
+    final_output = template_str.replace('__REPLACE_ANIMALS_INFO__', output)
+    with open('animals.html', 'w+') as f:
+        f.write(final_output)
+
+if __name__ == '__main__':
+    main()
